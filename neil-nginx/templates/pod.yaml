@@ -23,6 +23,6 @@ spec:
       command: ["/bin/sh", "-c"]
       args:
         - while true; do
-            echo $(date) >> /html/index.html;
+            echo "I am from a github push! " > /html/index.html;
             sleep 1;
           done
