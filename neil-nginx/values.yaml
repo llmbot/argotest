@@ -1,0 +1,18 @@
+pod:
+  name: webpod
+  namespace: webby
+  labels:
+    app: neilweb
+
+service:
+  name: web-service
+  namespace: webby
+  selector:
+    app: neilweb
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+  externalIPs:
+    - 162.246.157.187

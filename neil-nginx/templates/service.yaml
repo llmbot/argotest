@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+  namespace: {{ .Values.service.namespace }}
+spec:
+  selector:
+    {{- toYaml .Values.service.selector | nindent 4 }}
+  ports:
+    {{- toYaml .Values.service.ports | nindent 4 }}
+  type: {{ .Values.service.type }}
+{{- if .Values.service.externalIPs }}
+  externalIPs:
+    {{- toYaml .Values.service.externalIPs | nindent 4 }}
+{{- end }}
