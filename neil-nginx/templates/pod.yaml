@@ -15,14 +15,12 @@ spec:
       volumeMounts:
         - name: html
           mountPath: /usr/share/nginx/html
-    - name: filecontainer
+  initContainers:
+    - name: setup
       image: debian
       volumeMounts:
         - name: html
           mountPath: /html
       command: ["/bin/sh", "-c"]
       args:
-        - while true; do
-            echo "I am from a github push! " > /html/index.html;
-            sleep 1;
-          done
+        - echo "I am from a GitHub push!" > /html/index.html
