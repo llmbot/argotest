@@ -6,4 +6,7 @@ pod:
 
 ingress:
   name: website2-ingress
-  namespace: webby  
+  namespace: webby
+
+service:
+  name: website2-ingress-service
