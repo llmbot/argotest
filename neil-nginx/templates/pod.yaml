@@ -23,4 +23,4 @@ spec:
           mountPath: /html
       command: ["/bin/sh", "-c"]
       args:
-        - echo "I am from a GitHub push!" > /html/index.html
+        - echo "I have updated the code! " > /html/index.html
