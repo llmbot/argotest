@@ -1,0 +1,4 @@
+apiVersion: v2
+name: neil-ingress-chart
+version: 0.1.0
+description: A Helm chart for deploying a pod and service that uses ingress as its service routing layer

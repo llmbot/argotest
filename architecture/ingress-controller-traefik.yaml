@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: traefik-ingress
+  template:
+    metadata:
+      labels:
+        app: traefik-ingress
+    spec:
+      containers:
+      - name: traefik-ingress-controller
+        image: traefik:v2.5
+        ports:
+        - name: http
+          containerPort: 80
+        - name: https
+          containerPort: 443
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+spec:
+  selector:
+    app: traefik-ingress
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: 443

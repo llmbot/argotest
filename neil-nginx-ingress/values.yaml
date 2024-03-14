@@ -1,0 +1,9 @@
+pod:
+  name: website2
+  namespace: webby
+  labels:
+    app: neilweb2
+
+ingress:
+  name: wensite2-ingress
+  namespace: webby  

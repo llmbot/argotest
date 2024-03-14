@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ .Values.pod.name }}
+  namespace: {{ .Values.pod.namespace }}
+  labels:
+    {{- toYaml .Values.pod.labels | nindent 4 }}
+spec:
+  volumes:
+    - name: html
+      emptyDir: {}
+  containers:
+    - name: webcontainer
+      image: nginx
+      volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+  initContainers:
+    - name: setup
+      image: debian
+      volumeMounts:
+        - name: html
+          mountPath: /html
+      command: ["/bin/sh", "-c"]
+      args:
+        - echo "I am from a GitHub push!" > /html/index.html
