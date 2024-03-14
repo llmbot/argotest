@@ -5,5 +5,5 @@ pod:
     app: neilweb2
 
 ingress:
-  name: wensite2-ingress
+  name: website2-ingress
   namespace: webby  

@@ -10,7 +10,7 @@ spec:
     - name: html
       emptyDir: {}
   containers:
-    - name: webcontainer
+    - name: website2container
       image: nginx
       volumeMounts:
         - name: html
@@ -23,4 +23,4 @@ spec:
           mountPath: /html
       command: ["/bin/sh", "-c"]
       args:
-        - echo "I am from a GitHub push!" > /html/index.html
+        - echo "I am from an ingress route" > /html/index.html
